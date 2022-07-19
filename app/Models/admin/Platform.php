@@ -2,10 +2,18 @@
 
 namespace App\Models\admin;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\admin\Lesson;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Platform extends Model
 {
     use HasFactory;
+    /*************************
+     * Relación uno a muchos *
+     *************************/
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }
