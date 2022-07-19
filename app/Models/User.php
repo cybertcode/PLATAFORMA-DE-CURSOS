@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\admin\Course;
+use App\Models\admin\Review;
+use App\Models\admin\Comment;
+use App\Models\admin\Profile;
+use App\Models\admin\Reaction;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -58,4 +63,41 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    /**********************
+     * Relación uno a uno *
+     **********************/
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+    /*************************
+     * Relación uno a muchos *
+     *************************/
+    public function courses_dictated()
+    {
+        return $this->hasMany(Course::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
+    }
+    /****************************
+     * Relación muchos a muchos *
+     ****************************/
+    public function courses_enrolled()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+    public function lessons()
+    {
+        return $this->belongsToMany(Lesson::class);
+    }
 }
