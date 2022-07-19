@@ -3,10 +3,14 @@
 namespace App\Models\admin;
 
 use App\Models\User;
+use App\Models\admin\Goal;
 use App\Models\admin\Level;
 use App\Models\admin\Price;
 use App\Models\admin\Review;
+use App\Models\admin\Section;
+use App\Models\admin\Audience;
 use App\Models\admin\Category;
+use App\Models\admin\Requirement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,6 +29,22 @@ class Course extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+    public function requirements()
+    {
+        return $this->hasMany(Requirement::class);
+    }
+    public function goals()
+    {
+        return $this->hasMany(Goal::class);
+    }
+    public function audiences()
+    {
+        return $this->hasMany(Audience::class);
+    }
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
     }
     /*********************************
      * Relación uno a muchos inversa *

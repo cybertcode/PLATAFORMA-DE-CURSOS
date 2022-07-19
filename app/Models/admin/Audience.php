@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Audience extends Model
 {
     use HasFactory;
+    /*********************************
+     * Relación uno a muchos inversa *
+     *********************************/
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }
