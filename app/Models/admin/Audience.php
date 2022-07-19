@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Audience extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
     /*********************************
      * Relación uno a muchos inversa *
      *********************************/

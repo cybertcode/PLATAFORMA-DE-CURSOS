@@ -4,8 +4,10 @@ namespace App\Models\admin;
 
 use App\Models\User;
 use App\Models\admin\Goal;
+use App\Models\admin\Image;
 use App\Models\admin\Level;
 use App\Models\admin\Price;
+use App\Models\admin\Lesson;
 use App\Models\admin\Review;
 use App\Models\admin\Section;
 use App\Models\admin\Audience;
@@ -17,6 +19,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Course extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id', 'status'];
     /*******************************
      * Constantes para los estados *
      *******************************/
@@ -72,5 +80,19 @@ class Course extends Model
     public function students()
     {
         return $this->belongsToMany(User::class);
+    }
+    /**********************************
+     * Relación uno a uno polimórfica *
+     **********************************/
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+    /***************************
+     * Relacion hasManyThrough *
+     ***************************/
+    public function lessons()
+    {
+        return $this->hasManyThrough(Lesson::class, Section::class);
     }
 }

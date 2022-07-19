@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Models\admin\Course;
 use App\Models\admin\Review;
+use App\Models\admin\Comment;
 use App\Models\admin\Profile;
+use App\Models\admin\Reaction;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
@@ -78,6 +80,14 @@ class User extends Authenticatable
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
     }
     /****************************
      * Relación muchos a muchos *
