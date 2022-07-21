@@ -25,6 +25,25 @@ class Course extends Model
      * @var array
      */
     protected $guarded = ['id', 'status'];
+    // Para contar los estudiantes por curso | dentro del array el nombre del método de relación muchos a muchos
+    protected $withCount = ['students', 'reviews'];
+    // Agregamos un atributo a éste modelo
+    //se agrega un método-nombre del atributo mayúscula inicio-atributo mayúscula inicio
+    public function getRatingAttribute()
+    {
+        if ($this->reviews_count) {
+            // Nos retorna todos los reviews que dejó los alumnos de los cursos
+            //retornamos la relación-campo que contiene la calificación
+            return round($this->reviews->avg('rating'), 1);
+        } else {
+            return 5;
+        }
+    }
+    // Para slug en url
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
     /*******************************
      * Constantes para los estados *
      *******************************/
