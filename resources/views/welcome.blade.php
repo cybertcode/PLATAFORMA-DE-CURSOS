@@ -1,4 +1,5 @@
 <x-app-layout>
+    {{-- Portada --}}
     <section class="bg-cover" style="background-image: url({{ asset('frontend/img/estudiante.jpg') }})">
         <div class="max-w-7xl mx-auto px-4 ms:px-6 lg:px-8 py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
@@ -126,7 +127,7 @@
                                 ({{ $course->students_count }})
                             </p>
                         </div>
-                        <a href="{{ route('course.show', $course) }}"
+                        <a href="{{ route('courses.show', $course) }}"
                             class=" text-center w-full mt-4 bg-blue-400 px-8 py-2 font-semibold  hover:bg-blue-500 text-white inline-flex items-center space-x-2 rounded">
                             <i class="fas fa-info-circle w-5 h-5 fill-current"></i>
                             <span>Mas information</span>
