@@ -10,8 +10,7 @@ class HomeController extends Controller
     public function __invoke()
     {
         // return Course::find(9)->rating;
-        $courses = Course::where('status', '3')->latest('id')->get();
-        return $courses;
+        $courses = Course::where('status', '3')->latest('id')->get()->take(12);
         return view('welcome', compact('courses'));
     }
 }

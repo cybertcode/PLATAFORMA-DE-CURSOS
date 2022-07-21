@@ -39,6 +39,11 @@ class Course extends Model
             return 5;
         }
     }
+    // Para slug en url
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
     /*******************************
      * Constantes para los estados *
      *******************************/
