@@ -39,6 +39,22 @@ class Course extends Model
             return 5;
         }
     }
+    // Quey Scopes para la consulta si trae dato o es vació - CATEGORÍA
+    public function scopeCategory($query, $category_id)
+    {
+        // Si trae un valor entra al if caso contrario nó
+        if ($category_id) {
+            return $query->where('category_id', $category_id);
+        }
+    }
+    // Quey Scopes para la consulta si trae dato o es vació -NIVEL
+    public function scopeLevel($query, $level_id)
+    {
+        // Si trae un valor entra al if caso contrario nó
+        if ($level_id) {
+            return $query->where('level_id', $level_id);
+        }
+    }
     // Para slug en url
     public function getRouteKeyName()
     {
