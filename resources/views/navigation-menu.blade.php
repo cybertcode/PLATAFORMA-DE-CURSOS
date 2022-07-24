@@ -14,7 +14,7 @@ $nav_links = [
 @endphp
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="container">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -99,8 +99,7 @@ $nav_links = [
                                     <button
                                         class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
                                         <img class="object-cover w-8 h-8 rounded-full"
-                                            src="{{ Auth::user()->profile_photo_url }}"
-                                            alt="{{ Auth::user()->name }}" />
+                                            src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
                                 @else
                                     <span class="inline-flex rounded-md">
@@ -148,8 +147,7 @@ $nav_links = [
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login') }}"
-                            class="text-sm text-gray-700 underline dark:text-gray-500">Login</a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Login</a>
                         <a href="{{ route('register') }}"
                             class="ml-4 text-sm text-gray-700 underline dark:text-gray-500">Register</a>
 

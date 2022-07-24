@@ -1,0 +1,24 @@
+/* Nuestras clases personalizadas */
+.container {
+    @apply px-4 mx-auto max-w-7xl;
+}
+.card-article {
+    @apply bg-white shadow-lg rounded overflow-hidden;
+}
+.card-body {
+    @apply px-6 py-4;
+}
+.card-title {
+    @apply text-xl text-gray-700 mb-2 leading-6;
+}
+
+@media (min-width: 640px) {
+    .container {
+        @apply px-6;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        @apply px-8;
+    }
+}
