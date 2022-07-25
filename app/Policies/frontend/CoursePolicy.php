@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace App\Policies\frontend;
 
-use App\Models\admin\Course;
 use App\Models\User;
+use App\Models\admin\Course;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CoursePolicy
@@ -19,7 +19,6 @@ class CoursePolicy
     {
         //
     }
-    // public function enrolled(User $user, Course $course = null)
     public function enrolled(User $user, Course $course)
     {
         // return true;
