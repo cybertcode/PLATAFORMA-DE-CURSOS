@@ -10,16 +10,8 @@
                     natus molestiae eveniet
                     tenetur.</p>
                 <!-- component -->
-                <div>
-                    <form class=" flex">
-                        <input
-                            class="w-full rounded-l-lg p-3 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-                            placeholder="Ingrese el curso" />
-                        <button type="submit"
-                            class="px-8 rounded-r-lg bg-blue-500 font-bold p-3 uppercase  hover:bg-blue-400 text-white border-blue-500 border-t border-b border-r">Buscar
-                        </button>
-                    </form>
-                </div>
+                {{-- Incluimos el componente del buscador --}}
+                @livewire('frontend.course.search')
             </div>
         </div>
     </section>
