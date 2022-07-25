@@ -1,7 +1,7 @@
 <div>
     {{-- Especificamos el atributo de componente que se pasa al componente --}}
     @props(['course'])
-    <article class="card-article">
+    <article class="card">
         <img class="h-36 w-full object-cover" src="{{ Storage::url($course->image->url) }}" alt="">
         <div class="card-body">
             <h1 class="card-title">{{ Str::limit($course->title, 40) }}</h1>

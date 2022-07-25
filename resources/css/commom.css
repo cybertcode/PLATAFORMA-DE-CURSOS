@@ -2,7 +2,7 @@
 .container {
     @apply px-4 mx-auto max-w-7xl;
 }
-.card-article {
+.card {
     @apply bg-white shadow-lg rounded overflow-hidden;
 }
 .card-body {
