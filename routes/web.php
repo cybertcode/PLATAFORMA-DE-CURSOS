@@ -28,3 +28,8 @@ Route::middleware([
 });
 Route::get('/cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('/cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
+Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
+
+Route::get('course-status/{course}', function ($course) {
+    return "Control del avance de tu curso";
+})->name('course.status');

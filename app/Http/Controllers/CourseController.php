@@ -21,4 +21,10 @@ class CourseController extends Controller
             ->get();
         return view('frontend.pages.show', compact('course', 'similares'));
     }
+    public function enrolled(Course $course)
+    {
+        // $this->authorize('enrolled', $course);
+        $course->students()->attach(auth()->user()->id);
+        return redirect()->route('course.status', $course);
+    }
 }
