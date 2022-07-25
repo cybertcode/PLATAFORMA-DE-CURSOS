@@ -78,7 +78,7 @@
                     </div>
                     {{-- Course::class --}}
                     @can('enrolled', $course)
-                        <a href="{{ route('course.status',$course) }}" class="w-full mt-4  px-16 py-2 btn btn-danger" type="submit">Continuar el curso</a>
+                        <a href="{{ route('courses.status',$course) }}" class="w-full mt-4  px-16 py-2 btn btn-danger" type="submit">Continuar el curso</a>
                     @else
                         <form action="{{ route('courses.enrolled', $course) }}" method="post">
                             {{-- @method('post') --}}

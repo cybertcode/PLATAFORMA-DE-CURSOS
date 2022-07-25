@@ -1,0 +1,3 @@
+<div>
+    {{ $course->title }}
+</div>
