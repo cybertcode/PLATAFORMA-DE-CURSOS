@@ -31,4 +31,4 @@ Route::get('/cursos', [CourseController::class, 'index'])->name('courses.index')
 Route::get('/cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
 Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
 // Asigmos el controlador de la ruta al componente livewire
-Route::get('course-status/{course}', CourseStatus::class)->name('courses.status');
+Route::get('course-status/{course}', CourseStatus::class)->middleware('auth')->name('courses.status');

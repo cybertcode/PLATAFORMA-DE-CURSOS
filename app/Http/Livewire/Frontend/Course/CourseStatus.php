@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Frontend\Course;
 use Livewire\Component;
 use App\Models\admin\Course;
 use App\Models\admin\Lesson;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CourseStatus extends Component
 {
+    // Para utilizar los policy
+    use AuthorizesRequests;
+
     public $course, $current;
     public function mount(Course $course)
     {
@@ -28,6 +32,8 @@ class CourseStatus extends Component
         if (!$this->current) {
             $this->current = $course->lessons->last();
         }
+        // Metodo del policy-el curso
+        $this->authorize('enrolled', $course);
     }
     public function render()
     {

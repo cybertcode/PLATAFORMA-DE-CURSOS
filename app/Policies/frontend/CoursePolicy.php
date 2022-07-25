@@ -25,4 +25,13 @@ class CoursePolicy
         // Veficamos que el estudiante está matriculado el curso pasado de la vista
         return $course->students->contains($user->id);
     }
+    // Para proteger los curso que no están activos | agregamos ? para que nos deja ver el curso sin estar loqueado
+    public function published(?User $user, Course $course)
+    {
+        if ($course->status == 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
