@@ -40,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
              * Agregamos nuestra propio archivo de rutas *
              *********************************************/
             Route::middleware('web', 'auth')
+                ->name('admin') //para poner un nombre a los nombres de rutas
                 ->prefix('admin') //Para agregar el prefijo
                 ->group(base_path('routes/admin.php'));
             /***********************************************************
