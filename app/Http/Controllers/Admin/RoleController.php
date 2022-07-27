@@ -14,6 +14,13 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:Ver roles')->only('index');
+        $this->middleware('can:Crear roles')->only('create', 'store');
+        $this->middleware('can:Actualizar roles')->only('edit', 'update',);
+        $this->middleware('can:Eliminar roles')->only('destroy');
+    }
     public function index()
     {
         $roles = Role::all();

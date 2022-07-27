@@ -127,10 +127,16 @@ $nav_links = [
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
-
-                                <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
-                                    Instructor
-                                </x-jet-dropdown-link>
+                                @can('Ver cursos')
+                                    <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
+                                        Instructor
+                                    </x-jet-dropdown-link>
+                                @endcan
+                                @can('Ver dashboard')
+                                    <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                                        Panel de Administración
+                                    </x-jet-dropdown-link>
+                                @endcan
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -208,11 +214,16 @@ $nav_links = [
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-jet-responsive-nav-link>
-
-                    <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
-                        Instructor
-                    </x-jet-responsive-nav-link>
-
+                    @can('Ver cursos')
+                        <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
+                            Instructor
+                        </x-jet-responsive-nav-link>
+                    @endcan
+                    @can('Ver dashboard')
+                        <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
+                            Panel de Administración
+                        </x-jet-responsive-nav-link>
+                    @endcan
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                             {{ __('API Tokens') }}

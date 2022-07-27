@@ -1,6 +1,9 @@
 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     {!! Form::label('name', 'Nombre: ') !!}
-    {!! Form::text('name', null, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')]) !!}
+    {!! Form::text('name', null, [
+        'class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''),
+        'readonly' => true,
+    ]) !!}
     <small class="text-danger">{{ $errors->first('name') }}</small>
 </div>
 <strong>Roles</strong>

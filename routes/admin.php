@@ -9,7 +9,7 @@ use App\Http\Controllers\admin\AdminController;
 //     return "success";
 // });
 
-Route::get('/inicio', [AdminController::class, 'index'])->name('home');
+Route::get('/inicio', [AdminController::class, 'index'])->middleware('can:Ver dashboard')->name('home');
 Route::resource('roles', RoleController::class)->names('roles');
 Route::resource('usuarios', UserController::class)->only(['index', 'edit', 'update', 'destroy'])->names('users');//Incorrecto
 // Route::resource('users', UserController::class)->names('users');//correcto

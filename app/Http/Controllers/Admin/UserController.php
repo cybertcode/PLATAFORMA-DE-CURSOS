@@ -14,49 +14,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:Ver usuarios')->only('index');
+        // $this->middleware('can:Crear usuarios')->only('create', 'store');
+        $this->middleware('can:Actualizar usuarios')->only('edit', 'update',);
+        $this->middleware('can:Eliminar usuarios')->only('destroy');
+    }
     public function index()
     {
         return view('admin.pages.user.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $usuario)
     {
         $roles = Role::all();
