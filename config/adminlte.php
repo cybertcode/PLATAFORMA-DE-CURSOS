@@ -259,9 +259,16 @@ return [
             'icon'        => 'fas fa-fw fa-tachometer-alt',
         ],
         [
+            'text'        => 'Usuarios',
+            'route'         => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'active'        => ['admin/usuarios*'],
+        ],
+        [
             'text'        => 'Roles',
             'route'         => 'admin.roles.index',
             'icon'        => 'fas fa-fw fa-users-cog',
+            'active'        => ['admin/roles*'],
         ],
         ['header' => 'account_settings'],
         [
@@ -482,5 +489,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

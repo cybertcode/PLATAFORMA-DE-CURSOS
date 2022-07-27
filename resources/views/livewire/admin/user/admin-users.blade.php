@@ -1,22 +1,14 @@
-@extends('adminlte::page')
-
-@section('title', 'Roles')
-
-@section('content_header')
-    <h1>Lista de Roles</h1>
-@stop
-
-@section('content')
+<div>
     @if (session('success'))
         <div class="alert alert-primary" role="alert">
             <strong>¡Éxito</strong> {{ session('success') }}
         </div>
     @endif
-
     <div class="card">
-        <div class="card-header">
-            <p class="card-title ">Lista de roles</p>
-            <a class="float-right btn btn-primary" href="{{ route('admin.roles.create') }}">Crear rol</a>
+        <div class="card-header d-flex flex-row justify-content-end">
+            {{-- <p class="card-title ">Todos los usuarios registrados</p> --}}
+            <input wire:model='search' type="search" class="form-control w-50" placeholder="Buscar">
+            <a class=" btn btn-primary ml-4" href="#">Crear Usuario</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -24,42 +16,34 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Correo electrónico</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($roles as $role)
+                    @foreach ($users as $usuario)
                         <tr>
-                            <td>{{ $role->id }}</td>
-                            <td>{{ $role->name }}</td>
+                            <td>{{ $usuario->id }}</td>
+                            <td>{{ $usuario->name }}</td>
+                            <td>{{ $usuario->email }}</td>
                             <td width="10px"><a class="btn btn-secondary"
-                                    href="{{ route('admin.roles.edit', $role) }}">Editar
+                                    href="{{ route('admin.users.edit', $usuario) }}">Editar
                             </td>
                             <td width="10px">
-                                <form method="POST" action="{{ route('admin.roles.destroy', $role) }}">
+                                <form method="POST" action="{{ route('admin.users.destroy', $usuario) }}">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
                                 </form>
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center text-danger">Sin roles</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
+        <div class="card-footer">
+            {{ $users->links() }}
+
+        </div>
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script>
-        console.log('Hi!');
-    </script>
-@stop
+</div>

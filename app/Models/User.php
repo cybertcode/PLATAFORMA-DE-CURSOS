@@ -62,6 +62,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+    // Para que muestre el slug en url
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     protected $appends = [
         'profile_photo_url',
     ];
