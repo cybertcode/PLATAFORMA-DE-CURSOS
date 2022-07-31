@@ -18,6 +18,7 @@
     @livewireStyles
 
     <!-- Scripts -->
+    {{-- Aquí incluye los archivos compilados con vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
