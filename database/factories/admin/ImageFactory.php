@@ -35,7 +35,7 @@ class ImageFactory extends Factory
             // Primera forma
             // 'url' => 'cursos/' . $faker->image('public/storage/cursos', 640, 480, false),
             // Segunda forma
-            'url' => 'cursos/' . $faker->picsum('public/storage/cursos', 640, 480, false), //true para guardar la ruta completa
+            'url' => 'courses/' . $faker->picsum('public/storage/courses', 640, 480, false), //true para guardar la ruta completa
             // 'imageable_id' => null, //optional porque se agrega dinámicamente
             // 'imageable_type' => null //optional porque se agrega dinámicamente
         ];

@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         /************************************
          * Eiminamos - Creamos las carpetas *
          ************************************/
-        Storage::deleteDirectory('cursos');
-        Storage::makeDirectory('cursos');
+        Storage::deleteDirectory('courses');
+        Storage::makeDirectory('courses');
         /***********************************
          * Llamamos los seeder y factories *
          ***********************************/

@@ -8,6 +8,7 @@ use App\Models\admin\Course;
 use Illuminate\Http\Request;
 use App\Models\admin\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -42,7 +43,22 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return ($request->all());
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:courses,slug',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required',
+        ]);
+        $course = Course::create($request->all());
+        if ($request->file) {
+            $url = Storage::put('courses', $request->file);
+            $course->image()->create(['url' => $url]);
+        }
+        return redirect()->route('instructor.courses.edit', $course);
     }
 
     /**

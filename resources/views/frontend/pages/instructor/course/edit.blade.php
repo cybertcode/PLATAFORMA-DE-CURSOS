@@ -18,13 +18,14 @@
                 {!! Form::model($course, [
                     'route' => ['instructor.courses.update', $course],
                     'method' => 'PUT',
-                    'class' => 'form-horizontal',
+                    'class' => '',
+                    'files' => true,
                 ]) !!}
                 @include('frontend.pages.instructor.course.partials.form')
                 <div class="flex justify-end">
                     {!! Form::submit('Actualizar curso', [
                         'class' =>
-                            'px-4 py-2 text-sm text-white duration-150 bg-indigo-600 rounded-md hover:bg-indigo-700 active:shadow-lg',
+                            'px-4 py-2 text-sm text-white duration-150 bg-indigo-600 rounded-md hover:bg-indigo-700 active:shadow-lg cursor-pointer',
                     ]) !!}
                 </div>
                 {!! Form::close() !!}

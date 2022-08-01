@@ -21,8 +21,15 @@
                         <td class="pl-4 cursor-pointer">
                             <div class="flex items-center">
                                 <div class="w-10 h-10">
-                                    <img class="w-full h-full" src="{{ Storage::url($course->image->url) }}"
-                                        alt="{{ $course->title }}" />
+                                    @isset($course->image)
+                                        <img id="picture" src="{{ Storage::url($course->image->url) }}" alt=""
+                                            class="h-10 w-10 rounded-full object-cover object-center">
+                                    @else
+                                        <img id="picture"
+                                            src="https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                            alt="" class="h-10 w-10 rounded-full object-cover object-center">
+                                    @endisset
+
                                 </div>
                                 <div class="pl-4">
                                     <p class="font-medium">{{ $course->title }}</p>
@@ -102,7 +109,7 @@
                                 class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden ">
                                 <div tabindex="0"
                                     class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                    <a href="{{ route('instructor.courses.edit',$course) }}">Editar</a>
+                                    <a href="{{ route('instructor.courses.edit', $course) }}">Editar</a>
                                 </div>
                                 <div tabindex="0"
                                     class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
