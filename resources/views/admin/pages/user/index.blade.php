@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    @livewire('admin.user.admin-users');
+    @livewire('admin.user.users-index');
 @stop
 
 @section('css')

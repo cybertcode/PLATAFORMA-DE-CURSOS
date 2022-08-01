@@ -9,7 +9,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.index');
+        return view('frontend.pages.course.index');
     }
     public function show(Course $course)
     {
@@ -20,7 +20,7 @@ class CourseController extends Controller
             ->latest('id')
             ->take(5)
             ->get();
-        return view('frontend.pages.show', compact('course', 'similares'));
+        return view('frontend.pages.course.show', compact('course', 'similares'));
     }
     public function enrolled(Course $course)
     {
