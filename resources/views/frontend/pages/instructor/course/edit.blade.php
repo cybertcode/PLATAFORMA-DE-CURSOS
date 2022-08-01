@@ -72,6 +72,7 @@
                             'class' =>
                                 'w-full p-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600',
                             'required' => 'required',
+                            'files' => true,
                         ]) !!}
                         <small class="text-danger">{{ $errors->first('category_id') }}</small>
                     </div>
@@ -99,7 +100,7 @@
                 <h1 class="text-2xl font-bold mt-8 mb-2">Imagen</h1>
                 <div class="grid grid-cols-2 gap-4">
                     <figure>
-                        <img src="{{ Storage::url($course->image->url) }}" alt=""
+                        <img id="picture" src="{{ Storage::url($course->image->url) }}" alt=""
                             class="w-full h-64 bg-cover bg-center">
                     </figure>
                     <div>
@@ -114,9 +115,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="btn-group pull-right">
-                    {!! Form::reset('Reset', ['class' => 'btn btn-warning']) !!}
-                    {!! Form::submit('Add', ['class' => 'btn btn-Add']) !!}
+                <div class="flex justify-end">
+                    {!! Form::submit('Actualizar curso', [
+                        'class' =>
+                            'px-4 py-2 text-sm text-white duration-150 bg-indigo-600 rounded-md hover:bg-indigo-700 active:shadow-lg',
+                    ]) !!}
                 </div>
                 {!! Form::close() !!}
             </div>
@@ -133,23 +136,24 @@
                 document.getElementById('slug').value = slug(title);
             }
             // del profe del curso
-            // function slug(str) {
-            // var $slug = '';
-            // var trimmed = str.trim(str);
-            // $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
-            // replace(/-+/g, '-').
-            // replace(/^-|-$/g, '');
-            // return $slug.toLowerCase();
-            // }
             function slug(str) {
                 var $slug = '';
+
                 var trimmed = str.trim(str);
-                $slug = trimmed.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ')
-                    .toLowerCase()
-                    .replace(/^\s+|\s+$/gm, '')
-                    .replace(/\s+/g, '-');
+                $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
+                replace(/-+/g, '-').
+                replace(/^-|-$/g, '');
                 return $slug.toLowerCase();
             }
+            // function slug(str) {
+            //     var $slug = '';
+            //     var trimmed = str.trim(str);
+            //     $slug = trimmed.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ')
+            //         .toLowerCase()
+            //         .replace(/^\s+|\s+$/gm, '')
+            //         .replace(/\s+/g, '-');
+            //     return $slug.toLowerCase();
+            // }
 
             /**********************
              * Activamos ckeditor *
@@ -181,6 +185,19 @@
                 .catch(error => {
                     console.log(error);
                 });
+            /***********************
+             * Para cambiar imagen *
+             ***********************/
+            document.getElementById("file").addEventListener('change', cambiarImagen);
+
+            function cambiarImagen(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("picture").setAttribute('src', event.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
         </script>
     </x-slot>
 </x-app-layout>
