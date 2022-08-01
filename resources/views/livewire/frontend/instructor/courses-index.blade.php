@@ -1,7 +1,7 @@
 <div class="container">
     {{-- Nuestro componente --}}
     <x-frontend.table-responsive>
-        <table class="w-full whitespace-nowrap">
+        <table class="w-full whitespace-nowrap table-auto">
             <thead>
                 <tr tabindex="0"
                     class="focus:outline-none h-16 w-full text-sm leading-none text-gray-800 dark:text-white ">
@@ -88,42 +88,25 @@
                             @endswitch
                             {{-- <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">$4,200 left</p> --}}
                         </td>
-                        <td class="pl-20">
-                            <p class="font-medium">22.12.21</p>
-                            <p class="text-xs leading-3 text-gray-600 dark:text-gray-200  mt-2">34 days</p>
-                        </td>
-                        <td class="pl-16">
-                            <div class="flex items-center">
-                                <img class="shadow-md w-8 h-8 rounded-full"
-                                    src="https://cdn.tuk.dev/assets/templates/olympus/projects(8).png"
-                                    alt="collaborator 1" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2"
-                                    src="https://cdn.tuk.dev/assets/templates/olympus/projects(9).png"
-                                    alt="collaborator 2" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2"
-                                    src="https://cdn.tuk.dev/assets/templates/olympus/projects(10).png"
-                                    alt="collaborator 3" />
-                                <img class="shadow-md w-8 h-8 rounded-full -ml-2"
-                                    src="https://cdn.tuk.dev/assets/templates/olympus/projects(11).png"
-                                    alt="collaborator 4" />
+                        <td class="px-7 2xl:px-0 ">
+                            <div class="">
+                                <button onclick="dropdownFunction(this)"
+                                    class="w-5 focus:ring-2 rounded-md focus:outline-none ml-7 " role="button"
+                                    aria-label="options">
+                                    <img class="w-5 flex items-stretch"
+                                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg"
+                                        alt="dropdown">
+                                </button>
                             </div>
-                        </td>
-                        <td class="px-7 2xl:px-0">
-                            <button onclick="dropdownFunction(this)"
-                                class="w-5 focus:ring-2 rounded-md focus:outline-none ml-7" role="button"
-                                aria-label="options">
-                                <img class="w-5" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/table_3-svg1.svg"
-                                    alt="dropdown">
-                            </button>
                             <div
-                                class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden">
+                                class="dropdown-content bg-white dark:bg-gray-800  shadow w-24 absolute z-30 right-0 mr-6 hidden ">
                                 <div tabindex="0"
                                     class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                    <p>Edit</p>
+                                    <a href="{{ route('instructor.courses.edit',$course) }}">Editar</a>
                                 </div>
                                 <div tabindex="0"
                                     class="focus:outline-none focus:text-indigo-600 text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                    <p>Delete</p>
+                                    <p>Eliminar</p>
                                 </div>
                             </div>
                         </td>

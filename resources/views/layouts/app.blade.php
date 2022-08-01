@@ -37,6 +37,11 @@
     @stack('modals')
 
     @livewireScripts
+    {{-- Componente con nombre de la vista edit --}}
+    {{-- verificamos si existe la variable $js --}}
+    @isset($js)
+        {{ $js }}
+    @endisset
 </body>
 
 </html>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Instructor;
 
-use App\Http\Controllers\Controller;
+use App\Models\admin\Level;
+use App\Models\admin\Price;
 use App\Models\admin\Course;
 use Illuminate\Http\Request;
+use App\Models\admin\Category;
+use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
@@ -15,7 +18,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.instructor.index');
+        return view('frontend.pages.instructor.course.index');
     }
 
     /**
@@ -58,7 +61,10 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('frontend.pages.instructor.edit', compact('course'));
+        $categories = Category::pluck('name', 'id');
+        $levels = Level::pluck('name', 'id');
+        $prices = Price::pluck('name', 'id');
+        return view('frontend.pages.instructor.course.edit', compact('course', 'categories', 'levels', 'prices'));
     }
 
     /**
