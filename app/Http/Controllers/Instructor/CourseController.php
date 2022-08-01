@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Instructor;
 
 use App\Models\admin\Level;
 use App\Models\admin\Price;
+use Illuminate\Support\Str;
 use App\Models\admin\Course;
 use Illuminate\Http\Request;
 use App\Models\admin\Category;
@@ -95,7 +96,29 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:courses,slug,' . $course->id,
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required',
+        ]);
+        $course->update($request->all());
+        if ($request->file) {
+            //Guardamos en servidor y almacenar la ruta en $url
+            $url = Storage::put('courses', $request->file('file'));
+            if ($course->image) {
+                //elimnamos la imagen
+                Storage::delete($course->image->url);
+                //Actualizamos cn la nueva ruta
+                $course->image->update(['url' => $url]);
+            } else {
+                $course->image()->create(['url' => $url]);
+            }
+        }
+        return redirect()->route('instructor.courses.edit', $course);
     }
 
     /**
