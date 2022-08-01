@@ -97,6 +97,7 @@
             {!! Form::label('file', 'Subir Imagen') !!}
             {!! Form::file('file', [
                 'class' => 'form-input w-full' . ($errors->has('file') ? ' border border-red-500' : ''),
+                'accept' => 'image/*',
             ]) !!}
             <p class="help-block">solo imagen jpeg</p>
             <strong class="text-red-600 text-xs">{{ $errors->first('file') }}</strong>
