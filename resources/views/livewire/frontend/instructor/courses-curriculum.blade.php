@@ -30,6 +30,10 @@
                                 wire:click="destroy({{ $item }})"></i>
                         </div>
                     </header>
+                    <div>
+                        {{-- le pasamos un parámetro section - también le pasamos una llave que identidique al componente siempre que llamamos mas de una vez el componente sino sale error --}}
+                        @livewire('frontend.instructor.courses-lesson', ['section' => $item], key($item->id))
+                    </div>
                 @endif
             </div>
         </article>
