@@ -45,12 +45,16 @@
                         <p class="text-sm">Plataforma: {{ $item->platform->name }}</p>
                         <p class="text-sm">Enlace: <a href="{{ $item->url }}" class="text-blue-600"
                                 target="_blank">{{ $item->url }}</a></p>
-                        <div class="mt-2">
+                        <div class="my-2">
                             <button
                                 class="px-4 py-2 text-sm text-white duration-100 bg-blue-600 rounded-md shadow-md focus:shadow-none ring-offset-2 ring-blue-600 focus:ring-2"
                                 wire:click="edit({{ $item }})">Editar</button>
                             <button wire:click="destroy({{ $item }})"
                                 class="px-4 py-2 text-sm text-white duration-100 bg-red-600 rounded-md shadow-md focus:shadow-none ring-offset-2 ring-red-600 focus:ring-2 ml-2">Eliminar</button>
+                        </div>
+                        <div>
+                            {{-- Incluimos el componente livewire --}}
+                            @livewire('frontend.instructor.lesson-description', ['lesson' => $item], key($item->id))
                         </div>
                     </div>
                 @endif
