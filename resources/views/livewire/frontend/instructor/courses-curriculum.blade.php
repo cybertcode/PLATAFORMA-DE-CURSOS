@@ -7,7 +7,7 @@
     <hr class="mt-2 mb-6">
     {{-- {{ $section }} --}}
     @foreach ($course->sections as $item)
-        <article class="card mb-6">
+        <article class="card mb-6" x-data="{ open: true }">
             <div class="card-body bg-gray-100">
                 @if ($section->id == $item->id)
                     <form wire:submit.prevent='update'>
@@ -22,7 +22,7 @@
                     </form>
                 @else
                     <header class="flex justify-between item-center">
-                        <h1 class="cursor-pointer"><strong>Sección: {{ $item->name }}</strong></h1>
+                        <h1 x-on:click="open = !open" class="cursor-pointer"><strong>Sección: {{ $item->name }}</strong></h1>
                         <div>
                             <i class="fas fa-edit cursor-pointer text-blue-500"
                                 wire:click="edit({{ $item }})"></i>
@@ -30,7 +30,7 @@
                                 wire:click="destroy({{ $item }})"></i>
                         </div>
                     </header>
-                    <div>
+                    <div x-show="open">
                         {{-- le pasamos un parámetro section - también le pasamos una llave que identidique al componente siempre que llamamos mas de una vez el componente sino sale error --}}
                         @livewire('frontend.instructor.courses-lesson', ['section' => $item], key($item->id))
                     </div>

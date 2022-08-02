@@ -1,6 +1,6 @@
 <div>
     @forelse($section->lessons as $item)
-        <article class="card mt-4">
+        <article class="card mt-4" x-data="{ open: false }">
             <div class="card-body">
                 @if ($lesson->id == $item->id)
                     {{-- Es importante que abajo sea form porque div no renderiza bien livewire --}}
@@ -38,14 +38,16 @@
                     </form>
                 @else
                     <header>
-                        <h1 class="far fa-play-circle text-blue-500 mr-1"> Lección: {{ $item->name }}</h1>
+                        <h1 x-on:click="open = !open" class="far fa-play-circle text-blue-500 mr-1 cursor-pointer">
+                            Lección:
+                            {{ $item->name }}</h1>
                     </header>
-                    <div>
+                    <div x-show="open">
                         <hr class="my-2">
                         <p class="text-sm">Plataforma: {{ $item->platform->name }}</p>
                         <p class="text-sm">Enlace: <a href="{{ $item->url }}" class="text-blue-600"
                                 target="_blank">{{ $item->url }}</a></p>
-                        <div class="my-2">
+                        <div class="my-4">
                             <button
                                 class="px-4 py-2 text-sm text-white duration-100 bg-blue-600 rounded-md shadow-md focus:shadow-none ring-offset-2 ring-blue-600 focus:ring-2"
                                 wire:click="edit({{ $item }})">Editar</button>
@@ -54,7 +56,10 @@
                         </div>
                         <div>
                             {{-- Incluimos el componente livewire --}}
-                            @livewire('frontend.instructor.lesson-description', ['lesson' => $item], key($item->id))
+                            @livewire('frontend.instructor.lesson-description', ['lesson' => $item], key('lesson-description' . $item->id))
+                        </div>
+                        <div class="my-4">
+                            @livewire('frontend.instructor.lesson-resources', ['lesson' => $item], key('lesson-resources' . $item->id))
                         </div>
                     </div>
                 @endif
@@ -88,7 +93,7 @@
                             @endforeach
                         </select>
                     </div>
-                    {{ $platform_id }}
+                    {{-- {{ $platform_id }} --}}
                     <strong class="text-red-600 text-xs">{{ $errors->first('platform_id') }}</strong>
                     <div class="flex items-center mt-2">
                         <label class="w-32" for="url">URL: </label>
