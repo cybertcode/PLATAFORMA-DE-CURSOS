@@ -1,9 +1,13 @@
 <div class="w-full sm:px-6">
+    {{-- Agregamos el isset a causa que volvimos usar el componente y yo agregue por separado el buscador --}}
+    {{-- @isset($courses) --}}
     <div class="px-4 md:px-10 py-2 md:py-7 bg-gray-100 dark:bg-gray-700 rounded-tl-lg rounded-tr-lg">
         <div class="sm:flex items-center justify-between">
-            <p tabindex="0"
+            {{-- <p tabindex="0"
                 class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800 dark:text-white ">
-                Cursos</p>
+                Cursos
+
+            </p> --}}
             <div class="flex justify-start items-center py-2 relative">
                 <input wire:model='search'
                     class="text-sm leading-none text-left text-gray-600 px-4 py-3 w-full border rounded border-gray-300 outline-none h-9"
@@ -14,8 +18,10 @@
                         class="text-sm font-medium leading-none text-white">Nuevo curso</a>
                 </button>
             </div>
+
         </div>
     </div>
+    {{-- @endisset --}}
     <div class="bg-white dark:bg-gray-800  shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto ">
         {{ $slot }}
     </div>
