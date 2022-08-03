@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Instructor;
 
+use App\Http\Controllers\Controller;
+use App\Models\admin\Category;
+use App\Models\admin\Course;
 use App\Models\admin\Level;
 use App\Models\admin\Price;
-use Illuminate\Support\Str;
-use App\Models\admin\Course;
 use Illuminate\Http\Request;
-use App\Models\admin\Category;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -132,5 +131,9 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         //
+    }
+    public function goals(Course $course)
+    {
+        return view('frontend.pages.instructor.course.goals', compact('course'));
     }
 }
