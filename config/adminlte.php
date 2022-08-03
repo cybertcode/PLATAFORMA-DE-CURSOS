@@ -12,7 +12,7 @@ return [
     | For detailed instructions you can look the title section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
-    */
+     */
 
     'title' => 'AdminLTE 3',
     'title_prefix' => '',
@@ -28,7 +28,7 @@ return [
     | For detailed instructions you can look the favicon section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
-    */
+     */
 
     'use_ico_only' => false,
     'use_full_favicon' => false,
@@ -43,7 +43,7 @@ return [
     | For detailed instructions you can look the logo section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
-    */
+     */
 
     'logo' => '<b>CYBERT</b>CODE',
     'logo_img' => 'vendor/adminlte/dist/img/logo.png',
@@ -62,7 +62,7 @@ return [
     | For detailed instructions you can look the user menu section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
-    */
+     */
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
@@ -81,11 +81,11 @@ return [
     | For detailed instructions you can look the layout section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
-    */
+     */
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -100,7 +100,7 @@ return [
     | For detailed instructions you can look the auth classes section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
-    */
+     */
 
     'classes_auth_card' => 'card-outline card-primary',
     'classes_auth_header' => '',
@@ -119,7 +119,7 @@ return [
     | For detailed instructions you can look the admin panel classes here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
-    */
+     */
 
     'classes_body' => '',
     'classes_brand' => '',
@@ -143,7 +143,7 @@ return [
     | For detailed instructions you can look the sidebar section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
-    */
+     */
 
     'sidebar_mini' => 'lg',
     'sidebar_collapse' => false,
@@ -165,7 +165,7 @@ return [
     | For detailed instructions you can look the right sidebar section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
-    */
+     */
 
     'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
@@ -185,7 +185,7 @@ return [
     | For detailed instructions you can look the urls section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
-    */
+     */
 
     'use_route_url' => false,
     'dashboard_url' => '/',
@@ -206,7 +206,7 @@ return [
     | For detailed instructions you can look the laravel mix section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
-    */
+     */
 
     'enabled_laravel_mix' => false,
     'laravel_mix_css_path' => 'css/app.css',
@@ -222,17 +222,17 @@ return [
     | For detailed instructions you can look here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
-    */
+     */
 
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type' => 'navbar-search',
+            'text' => 'search',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
@@ -243,8 +243,8 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
         // [
         //     'text'        => 'pages',
@@ -254,63 +254,69 @@ return [
         //     'label_color' => 'success',
         // ],
         [
-            'text'        => 'Dashboard',
-            'route'         => 'admin.home',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
-            'can'        => 'Ver dashboard',
+            'text' => 'Dashboard',
+            'route' => 'admin.home',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
+            'can' => 'Ver dashboard',
         ],
         [
-            'text'        => 'Usuarios',
-            'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-            'active'        => ['admin/usuarios*'],
-            'can'        => 'Ver usuarios',
+            'text' => 'Usuarios',
+            'route' => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-users',
+            'active' => ['admin/usuarios*'],
+            'can' => 'Ver usuarios',
         ],
         [
-            'text'        => 'Roles',
-            'route'         => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
-            'active'        => ['admin/roles*'],
-            'can'        => 'Ver roles',
+            'text' => 'Roles',
+            'route' => 'admin.roles.index',
+            'icon' => 'fas fa-fw fa-users-cog',
+            'active' => ['admin/roles*'],
+            'can' => 'Ver roles',
+        ],
+        ['header' => 'OPCIONES DE CURSOS'],
+        [
+            'text' => 'Pendientes de aprobación',
+            'route' => 'admin.courses.index',
+            'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'multilevel',
+            'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
                     'text' => 'level_one',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text' => 'level_one',
+                    'url' => '#',
                     'submenu' => [
                         [
                             'text' => 'level_two',
-                            'url'  => '#',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
+                            'text' => 'level_two',
+                            'url' => '#',
                             'submenu' => [
                                 [
                                     'text' => 'level_three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                                 [
                                     'text' => 'level_three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                             ],
                         ],
@@ -318,25 +324,25 @@ return [
                 ],
                 [
                     'text' => 'level_one',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
             ],
         ],
         ['header' => 'labels'],
         [
-            'text'       => 'important',
+            'text' => 'important',
             'icon_color' => 'red',
-            'url'        => '#',
+            'url' => '#',
         ],
         [
-            'text'       => 'warning',
+            'text' => 'warning',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url' => '#',
         ],
         [
-            'text'       => 'information',
+            'text' => 'information',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url' => '#',
         ],
     ],
 
@@ -350,7 +356,7 @@ return [
     | For detailed instructions you can look the menu filters section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
-    */
+     */
 
     'filters' => [
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
@@ -372,7 +378,7 @@ return [
     | For detailed instructions you can look the plugins section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Plugins-Configuration
     |
-    */
+     */
 
     'plugins' => [
         'Datatables' => [
@@ -458,7 +464,7 @@ return [
     | For detailed instructions you can look the iframe mode section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
     |
-    */
+     */
 
     'iframe' => [
         'default_tab' => [
@@ -490,7 +496,7 @@ return [
     | For detailed instructions you can look the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
-    */
+     */
 
     'livewire' => true,
 ];
