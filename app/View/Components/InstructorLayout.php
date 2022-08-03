@@ -11,9 +11,12 @@ class InstructorLayout extends Component
      *
      * @return void
      */
-    public function __construct()
+    // Cambiamos para trabajar con edit courses
+    public $course;
+
+    public function __construct($course)
     {
-        //
+        $this->course = $course;
     }
 
     /**

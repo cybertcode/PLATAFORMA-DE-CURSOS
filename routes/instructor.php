@@ -12,3 +12,5 @@ Route::get('courses/{course}/curriculum', CoursesCurriculum::class)->middleware(
 Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('courses.goals');
 // Asigmos el control de ruta al componente de livewire
 Route::get('courses/{course}/students', CoursesStudents::class)->middleware('can:Actualizar cursos')->name('courses.students');
+// Para solicitar revisión del curso
+Route::post('courses/{course}/status', [CourseController::class, 'status'])->name('courses.status');

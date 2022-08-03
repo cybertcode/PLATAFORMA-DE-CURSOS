@@ -1,8 +1,9 @@
 <div>
     {{-- Pasamos el slug a la vista --}}
-    <x-slot name="course">
+    {{-- Pasamos a la otra forma del componente de app/... --}}
+    {{-- <x-slot name="course">
         {{ $course->slug }}
-    </x-slot>
+    </x-slot> --}}
     <h1 class="text-2xl font-bold">LECCIONES DEL CURSO</h1>
     <hr class="mt-2 mb-6">
     {{-- {{ $section }} --}}

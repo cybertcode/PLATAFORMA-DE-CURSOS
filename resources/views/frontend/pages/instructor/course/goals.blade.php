@@ -1,7 +1,8 @@
-<x-instructor-layout>
-    <x-slot name="course">
+<x-instructor-layout :course="$course">
+    {{-- Cambiamos de la otra forma --}}
+    {{-- <x-slot name="course">
         {{ $course->slug }}
-    </x-slot>
+    </x-slot> --}}
     {{-- Incluimos los tres componentes livewire --}}
     <div>
         @livewire('frontend.instructor.courses-goals', ['course' => $course], key('courses-goals' . $course->id))

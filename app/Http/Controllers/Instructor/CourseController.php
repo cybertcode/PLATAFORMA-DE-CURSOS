@@ -151,4 +151,10 @@ class CourseController extends Controller
 
         return view('frontend.pages.instructor.course.goals', compact('course'));
     }
+    public function status(Course $course)
+    {
+        $course->status = 2;
+        $course->save();
+        return back();
+    }
 }

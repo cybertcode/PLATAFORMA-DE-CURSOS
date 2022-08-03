@@ -26,8 +26,8 @@ class CoursesCurriculum extends Component
     public function render()
     {
         // return view('livewire.frontend.instructor.courses-curriculum');original
-        // Por defecto extiende la plantilla resources\views\layouts\app.blade.php nosotros le cambiamos para que extienda la otra plantilla personalizada por nosotros
-        return view('livewire.frontend.instructor.courses-curriculum')->layout('layouts.instructor');
+        // Por defecto extiende la plantilla resources\views\layouts\app.blade.php nosotros le cambiamos para que extienda la otra plantilla personalizada por nosotros | Pasamos el parámetro al componente a la vista el course
+        return view('livewire.frontend.instructor.courses-curriculum')->layout('layouts.instructor', ['course' => $this->course]);
     }
     // Para editar el nombre de la sección
     public function edit(Section $section)

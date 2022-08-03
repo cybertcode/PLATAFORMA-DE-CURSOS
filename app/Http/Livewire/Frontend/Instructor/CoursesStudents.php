@@ -26,6 +26,7 @@ class CoursesStudents extends Component
     public function render()
     {
         $students = $this->course->students()->where('name', 'LIKE', '%' . $this->search . '%')->paginate(4);
-        return view('livewire.frontend.instructor.courses-students', compact('students'))->layout('layouts.instructor');
+        // Pasamos los como parametro a la vista el course en lugar que pasamos por slot
+        return view('livewire.frontend.instructor.courses-students', compact('students'))->layout('layouts.instructor', ['course' => $this->course]);
     }
 }

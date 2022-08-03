@@ -1,8 +1,8 @@
-<x-instructor-layout>
+<x-instructor-layout :course="$course">
     {{-- Pasamos el slug a la vista --}}
-    <x-slot name="course">
+    {{-- <x-slot name="course">
         {{ $course->slug }}
-    </x-slot>
+    </x-slot> --}}
     <h1 class="text-2xl font-bold">INFORMACIÓN DEL CURSO</h1>
     <hr class="mt-2 mb-6">
     {!! Form::model($course, [
