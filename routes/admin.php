@@ -15,3 +15,6 @@ Route::resource('roles', RoleController::class)->names('roles');
 Route::resource('usuarios', UserController::class)->only(['index', 'edit', 'update', 'destroy'])->names('users'); //Incorrecto
 // Route::resource('users', UserController::class)->names('users');//correcto
 Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+Route::get('courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+// Para aprobar el curso
+Route::post('courses/{course}/approved', [CourseController::class, 'approved'])->name('courses.approved');

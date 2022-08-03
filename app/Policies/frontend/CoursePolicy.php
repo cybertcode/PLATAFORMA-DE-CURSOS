@@ -43,4 +43,13 @@ class CoursePolicy
             return false;
         }
     }
+    // Para validar que únicamente cuando el curso sea en estado 2 o solicitado por el mismo usuario
+    public function revision(User $user, Course $course)
+    {
+        if ($course->status == 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

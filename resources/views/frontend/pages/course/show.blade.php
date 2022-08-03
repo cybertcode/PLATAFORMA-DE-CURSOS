@@ -60,7 +60,7 @@
             </section>
             <section>
                 <h1 class="font-bold text-3xl">Description</h1>
-                <div class="text-gray-700 text">{{ $course->description }}</div>
+                <div class="text-gray-700 text">{!! $course->description !!}</div>
             </section>
 
         </div>
@@ -78,12 +78,14 @@
                     </div>
                     {{-- Course::class --}}
                     @can('enrolled', $course)
-                        <a href="{{ route('courses.status',$course) }}" class="w-full mt-4  px-16 py-2 btn btn-danger" type="submit">Continuar el curso</a>
+                        <a href="{{ route('courses.status', $course) }}" class="w-full mt-4  px-16 py-2 btn btn-danger"
+                            type="submit">Continuar el curso</a>
                     @else
                         <form action="{{ route('courses.enrolled', $course) }}" method="post">
                             {{-- @method('post') --}}
                             @csrf
-                            <button class="w-full mt-4  px-16 py-2 btn btn-danger" type="submit">Inscribirse en el curso</button>
+                            <button class="w-full mt-4  px-16 py-2 btn btn-danger" type="submit">Inscribirse en el
+                                curso</button>
                         </form>
                     @endcan
                 </div>
