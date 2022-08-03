@@ -17,6 +17,13 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('can:Ver cursos')->only('index');
+        $this->middleware('can:Crear cursos')->only('create', 'store');
+        $this->middleware('can:Actualizar cursos')->only('edit', 'update', 'goals');
+        $this->middleware('can:Eliminar cursos')->only('destroy');
+    }
     public function index()
     {
         return view('frontend.pages.instructor.course.index');
@@ -81,6 +88,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
+        // Usamos nuestro método de autorización creado en el CoursePolicy|
+        $this->authorize('dicatated', $course);
         $categories = Category::pluck('name', 'id');
         $levels = Level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
@@ -96,6 +105,9 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        // Usamos nuestro método de autorización creado en el CoursePolicy|
+        $this->authorize('dicatated', $course);
+
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses,slug,' . $course->id,
@@ -134,6 +146,9 @@ class CourseController extends Controller
     }
     public function goals(Course $course)
     {
+        // Usamos nuestro método de autorización creado en el CoursePolicy|
+        $this->authorize('dicatated', $course);
+
         return view('frontend.pages.instructor.course.goals', compact('course'));
     }
 }

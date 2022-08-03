@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Frontend\Instructor;
 
 use App\Models\admin\Course;
 use App\Models\admin\Section;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class CoursesCurriculum extends Component
 {
+    use AuthorizesRequests; //Para utliizar los policy
     public $course;
     public $section;
     public $name; //Para agregar nueva sección
@@ -18,6 +20,8 @@ class CoursesCurriculum extends Component
     {
         $this->course = $course;
         $this->section = new Section();
+        // Para usar la autorización del policy verificar que sea nuestro curso para acceder o ver o editar
+        $this->authorize('dicatated', $course);
     }
     public function render()
     {

@@ -11,7 +11,7 @@
             <div class="flex justify-start items-center py-2 relative">
                 <input wire:model='search'
                     class="text-sm leading-none text-left text-gray-600 px-4 py-3 w-full border rounded border-gray-300 outline-none h-9"
-                    type="text" placeholder="Buscar curso" />
+                    type="text" placeholder="Buscar" />
                 <button
                     class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 w-full inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded h-9">
                     <a href="{{ route('instructor.courses.create') }}"

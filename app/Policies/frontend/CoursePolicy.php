@@ -2,8 +2,8 @@
 
 namespace App\Policies\frontend;
 
-use App\Models\User;
 use App\Models\admin\Course;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CoursePolicy
@@ -29,6 +29,15 @@ class CoursePolicy
     public function published(?User $user, Course $course)
     {
         if ($course->status == 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // Para validar que el curso le pertenezca el usuario autentificado para editar -actualizar
+    public function dicatated(User $user, Course $course)
+    {
+        if ($course->user_id == $user->id) {
             return true;
         } else {
             return false;

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('', 'courses'); //para redirigir si alguien accede a ruta instructor
 // Route::get('courses', InstructorCourses::class)->middleware('can:Ver cursos')->name('courses.index'); anterior
 Route::resource('courses', CourseController::class)->names('courses');
-Route::get('courses/{course}/curriculum', CoursesCurriculum::class)->name('courses.curriculum');
+Route::get('courses/{course}/curriculum', CoursesCurriculum::class)->middleware('can:Actualizar cursos')->name('courses.curriculum');
 Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('courses.goals');
 // Asigmos el control de ruta al componente de livewire
-Route::get('courses/{course}/students', CoursesStudents::class)->name('courses.students');
+Route::get('courses/{course}/students', CoursesStudents::class)->middleware('can:Actualizar cursos')->name('courses.students');
