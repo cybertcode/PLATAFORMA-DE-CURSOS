@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\CourseController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\LevelController;
+use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\CategoryController;
 
 // Route::get('/', function () {
 //     return "success";
@@ -21,3 +23,7 @@ Route::post('courses/{course}/approved', [CourseController::class, 'approved'])-
 // Para observar el curso
 Route::get('courses/{course}/observation', [CourseController::class, 'observation'])->name('courses.observation');
 Route::post('courses/{course}/reject', [CourseController::class, 'reject'])->name('courses.reject');
+// Ruta para categorías
+Route::resource('categories', CategoryController::class)->names('categories');
+// Ruta para nivels
+Route::resource('levels', LevelController::class)->names('levels');

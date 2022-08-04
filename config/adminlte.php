@@ -279,6 +279,18 @@ return [
             'route' => 'admin.courses.index',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Categorías',
+            'route' => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-cogs',
+            'active' => ['admin/categories*'],
+        ],
+        [
+            'text' => 'Niveles',
+            'route' => 'admin.levels.index',
+            'icon' => 'fas fa-fw fa-chart-line',
+            'active' => ['admin/levesls*'],
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
