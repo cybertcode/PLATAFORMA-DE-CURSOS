@@ -1,6 +1,6 @@
 <div class="mt-8">
-    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-2">
+    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8 ">
+        <div class="lg:col-span-2 ">
             <div class="embed-responsive">
                 {!! $current->iframe !!}
             </div>
@@ -12,8 +12,8 @@
                     {{ $current->description->name }}
                 </div>
             @endif
-            <div>
-                <div class="flex items-center mt-4 cursor-pointer" wire:click="completed">
+            <div class="flex justify-between mt-4 ml-4">
+                <div class="flex items-center  cursor-pointer" wire:click="completed">
                     @if ($current->completed)
                         <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
                     @else
@@ -21,6 +21,13 @@
                     @endif
                     <p class="text-sm ml-2">Marcar como culminado</p>
                 </div>
+                @if ($current->resource)
+                    <div wire:click="download"
+                        class="flex item-center text-gray-600 cursor-pointer hover:text-blue-600">
+                        <i class="fas fa-download text-lg "></i>
+                        <p class="text-sm ml-2">Descargar recursos</p>
+                    </div>
+                @endif
             </div>
             <div class="card mt-2">
                 <div class="card-body flex text-gray-500 font-bold">

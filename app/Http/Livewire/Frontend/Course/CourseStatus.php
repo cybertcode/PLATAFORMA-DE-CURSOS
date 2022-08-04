@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Frontend\Course;
 
-use Livewire\Component;
 use App\Models\admin\Course;
 use App\Models\admin\Lesson;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Livewire\Component;
 
 class CourseStatus extends Component
 {
@@ -16,7 +16,7 @@ class CourseStatus extends Component
     public function mount(Course $course)
     {
         $this->course = $course;
-        foreach ($course->lessons as  $lesson) {
+        foreach ($course->lessons as $lesson) {
             if (!$lesson->completed) {
                 $this->current = $lesson;
                 // // Indice
@@ -75,7 +75,7 @@ class CourseStatus extends Component
     public function getPreviousProperty()
     {
         if ($this->index == 0) {
-            return  null;
+            return null;
         } else {
             return $this->course->lessons[$this->index - 1];
         }
@@ -99,5 +99,11 @@ class CourseStatus extends Component
         }
         $advance = ($i * 100) / ($this->course->lessons->count());
         return round($advance, 2);
+    }
+
+    // Para descargar recursos del curso
+    public function download()
+    {
+        return response()->download(storage_path('app/public/' . $this->current->resource->url));
     }
 }
