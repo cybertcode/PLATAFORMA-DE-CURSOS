@@ -291,6 +291,12 @@ return [
             'icon' => 'fas fa-fw fa-chart-line',
             'active' => ['admin/levesls*'],
         ],
+        [
+            'text' => 'Precios',
+            'route' => 'admin.prices.index',
+            'icon' => 'fab fa-fw fa-cc-visa',
+            'active' => ['admin/prices*'],
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

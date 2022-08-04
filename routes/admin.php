@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\LevelController;
+use App\Http\Controllers\admin\PriceController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\LevelController;
-use App\Http\Controllers\admin\CourseController;
-use App\Http\Controllers\admin\CategoryController;
+use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return "success";
@@ -27,3 +28,5 @@ Route::post('courses/{course}/reject', [CourseController::class, 'reject'])->nam
 Route::resource('categories', CategoryController::class)->names('categories');
 // Ruta para nivels
 Route::resource('levels', LevelController::class)->names('levels');
+// Ruta para precios
+Route::resource('prices', PriceController::class)->names('prices');
