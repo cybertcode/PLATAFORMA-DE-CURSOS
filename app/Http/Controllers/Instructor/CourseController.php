@@ -155,6 +155,12 @@ class CourseController extends Controller
     {
         $course->status = 2;
         $course->save();
-        return back();
+        $course->observation->delete(); //eliminamos la observación
+
+        return redirect()->route('instructor.courses.edit', compact('course'));
+    }
+    public function observation(Course $course)
+    {
+        return view('frontend.pages.instructor.course.observation', compact('course'));
     }
 }

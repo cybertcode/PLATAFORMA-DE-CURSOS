@@ -14,3 +14,5 @@ Route::get('courses/{course}/goals', [CourseController::class, 'goals'])->name('
 Route::get('courses/{course}/students', CoursesStudents::class)->middleware('can:Actualizar cursos')->name('courses.students');
 // Para solicitar revisión del curso
 Route::post('courses/{course}/status', [CourseController::class, 'status'])->name('courses.status');
+// Para mostrar las observaciones del curso
+Route::get('courses/{course}/observation', [CourseController::class, 'observation'])->name('courses.observation');

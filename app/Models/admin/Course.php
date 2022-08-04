@@ -12,6 +12,7 @@ use App\Models\admin\Review;
 use App\Models\admin\Section;
 use App\Models\admin\Audience;
 use App\Models\admin\Category;
+use App\Models\admin\Observation;
 use App\Models\admin\Requirement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -130,4 +131,11 @@ class Course extends Model
     {
         return $this->hasManyThrough(Lesson::class, Section::class);
     }
+    /*******************************************
+     * Relación uno a uno para observación *
+     *******************************************/
+       public function observation()
+       {
+        return $this->hasOne(Observation::class);
+       }
 }
