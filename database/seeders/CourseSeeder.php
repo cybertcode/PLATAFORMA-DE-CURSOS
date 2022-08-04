@@ -6,6 +6,7 @@ use App\Models\admin\Goal;
 use App\Models\admin\Image;
 use App\Models\admin\Course;
 use App\Models\admin\Lesson;
+use App\Models\admin\Review;
 use App\Models\admin\Section;
 use App\Models\admin\Audience;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,10 @@ class CourseSeeder extends Seeder
         $courses = Course::factory(60)->create(); //Generados 40 registros de curso primero
         //Descargamos las imagesn en la tabla images
         foreach ($courses as $course) {
+
+            Review::factory(5)->create(
+                ['course_id' => $course->id]
+            );
             Image::factory(1)->create([
                 'imageable_id' => $course->id,
                 'imageable_type' => 'App\Models\admin\Course',

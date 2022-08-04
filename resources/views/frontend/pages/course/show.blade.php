@@ -62,7 +62,8 @@
                 <h1 class="font-bold text-3xl">Description</h1>
                 <div class="text-gray-700 text">{!! $course->description !!}</div>
             </section>
-
+            {{-- El componente de reviews --}}
+            @livewire('frontend.course.course-reviews', ['course' => $course])
         </div>
         <div class="order-1 lg:order-2">
             <section class="card mb-4">
