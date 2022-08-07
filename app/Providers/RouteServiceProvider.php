@@ -50,6 +50,13 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('instructor.')
                 ->prefix('instructor') //Para agregar el prefijo
                 ->group(base_path('routes/instructor.php'));
+            /***********************************************************
+             * Agregamos nuestra propio archivo de rutas pagos *
+             ***********************************************************/
+            Route::middleware('web', 'auth')
+                ->name('payment.')
+                ->prefix('payment') //Para agregar el prefijo
+                ->group(base_path('routes/payment.php'));
         });
     }
 

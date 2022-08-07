@@ -1,11 +1,11 @@
 <div>
     {{-- Especificamos el atributo de componente que se pasa al componente --}}
     @props(['course'])
-    <article class="card">
+    <article class="card flex-1 flex flex-col">
         <img class="h-36 w-full object-cover" src="{{ Storage::url($course->image->url) }}" alt="">
         <div class="card-body">
             <h1 class="card-title">{{ Str::limit($course->title, 40) }}</h1>
-            <p class="text-gray-500 text-sm mb-2">Prof: {{ $course->teacher->name }}</p>
+            <p class="text-gray-500 text-sm mb-auto">Prof: {{ $course->teacher->name }}</p>
             <div class="flex">
                 <ul class="flex text-sm">
                     <li class="mr-1">
@@ -29,7 +29,12 @@
                     ({{ $course->students_count }})
                 </p>
             </div>
-            <a href="{{ route('courses.show', $course) }}" class="w-full mt-4  px-8 py-2 btn btn-primary">
+            @if ($course->price->value == 0)
+                <p class="my-2 text-blue-500 font-bold">Gratis</p>
+            @else
+                <p class="my-2 text-gray-500 font-bold">S/. {{ $course->price->value }}</p>
+            @endif
+            <a href="{{ route('courses.show', $course) }}" class="w-full  px-8 py-2 btn btn-primary">
                 <i class="fas fa-info-circle w-5 h-5 fill-current"></i>
                 <span>Mas information</span>
             </a>

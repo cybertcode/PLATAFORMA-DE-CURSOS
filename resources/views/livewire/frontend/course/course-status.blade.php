@@ -1,4 +1,10 @@
 <div class="mt-8">
+    @if (session('success'))
+        <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800"
+            role="alert">
+            <span class="font-medium">! Bien..!</span> {{ session('success') }}
+        </div>
+    @endif
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8 ">
         <div class="lg:col-span-2 ">
             <div class="embed-responsive">
