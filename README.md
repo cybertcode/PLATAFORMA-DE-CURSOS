@@ -4,7 +4,10 @@
 
 _Plataforma de curso con laravel, liviwire, alpine.js_
 
-![CYBERCODE](https://github.com/cybertcode/PLATAFORMA-DE-CURSOS/blob/main/plataforma-cursos.png?raw=true" Logo Title Text 1")
+
+![image](https://user-images.githubusercontent.com/79773260/183322283-7369e3bd-107d-4392-97d4-481908dc1d98.png)
+
+
 
 ## Comenzando 🚀
 
