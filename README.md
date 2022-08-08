@@ -4,7 +4,7 @@
 
 _Plataforma de curso con laravel, liviwire, alpine.js_
 
-![CYBERCODE](https://github.com/cybertcode/PLATAFORMA-DE-CURSOS/plataforma-cursos.png "Logo Title Text 1")
+![CYBERCODE](https://github.com/cybertcode/PLATAFORMA-DE-CURSOS/blob/main/plataforma-cursos.png" Logo Title Text 1")
 
 ## Comenzando 🚀
 
