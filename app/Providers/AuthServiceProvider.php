@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\admin\Course;
 use Illuminate\Support\Facades\Gate;
+use App\Policies\frontend\CoursePolicy;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -12,8 +14,10 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array<class-string, class-string>
      */
+    // Aquí registramos el policy si en caso lo creas diferentes a las convenciones de laravel o creaste dentro de un subdirectorio
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Course::class => CoursePolicy::class,
     ];
 
     /**
@@ -24,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        // Gate::define('enrolled', Course::class);
 
         //
     }

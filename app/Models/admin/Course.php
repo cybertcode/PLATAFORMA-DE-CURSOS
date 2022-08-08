@@ -12,6 +12,7 @@ use App\Models\admin\Review;
 use App\Models\admin\Section;
 use App\Models\admin\Audience;
 use App\Models\admin\Category;
+use App\Models\admin\Observation;
 use App\Models\admin\Requirement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -37,6 +38,22 @@ class Course extends Model
             return round($this->reviews->avg('rating'), 1);
         } else {
             return 5;
+        }
+    }
+    // Quey Scopes para la consulta si trae dato o es vació - CATEGORÍA
+    public function scopeCategory($query, $category_id)
+    {
+        // Si trae un valor entra al if caso contrario nó
+        if ($category_id) {
+            return $query->where('category_id', $category_id);
+        }
+    }
+    // Quey Scopes para la consulta si trae dato o es vació -NIVEL
+    public function scopeLevel($query, $level_id)
+    {
+        // Si trae un valor entra al if caso contrario nó
+        if ($level_id) {
+            return $query->where('level_id', $level_id);
         }
     }
     // Para slug en url
@@ -114,4 +131,11 @@ class Course extends Model
     {
         return $this->hasManyThrough(Lesson::class, Section::class);
     }
+    /*******************************************
+     * Relación uno a uno para observación *
+     *******************************************/
+       public function observation()
+       {
+        return $this->hasOne(Observation::class);
+       }
 }

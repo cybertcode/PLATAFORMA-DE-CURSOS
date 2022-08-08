@@ -18,6 +18,7 @@
     @livewireStyles
 
     <!-- Scripts -->
+    {{-- Aquí incluye los archivos compilados con vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -36,6 +37,11 @@
     @stack('modals')
 
     @livewireScripts
+    {{-- Componente con nombre de la vista edit --}}
+    {{-- verificamos si existe la variable $js --}}
+    @isset($js)
+        {{ $js }}
+    @endisset
 </body>
 
 </html>

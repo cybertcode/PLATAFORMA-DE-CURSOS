@@ -1,7 +1,8 @@
 <div>
     <div class="bg-gray-200 py-4 mb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
-            <button class="bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4">
+            <button class="bg-white shadow h-12 px-4 rounded-lg text-gray-700 mr-4 focus:outline-none"
+                wire:click="resetFilters">
                 <i class="fas fa-home"></i> Todos los cursos
             </button>
             <!-- component categorías -->
@@ -23,50 +24,15 @@
                     <!-- Dropdown menu -->
                     <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800"
                         x-show="open" x-on:click.away="open=false">
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            view profile
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Settings
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Keyboard shortcuts
-                        </a>
-
-                        <hr class="border-gray-200 dark:border-gray-700 ">
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Company profile
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Team
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Invite colleagues
-                        </a>
-
-                        <hr class="border-gray-200 dark:border-gray-700 ">
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Help
-                        </a>
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Sign Out
-                        </a>
+                        @foreach ($categories as $category)
+                            {{-- el primero variable del componente será remplazada por el id de la categoría --}}
+                            <a class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer"
+                                wire:click="$set('category_id',{{ $category->id }})" x-on:click="open = false">
+                                {{ $category->name }}
+                            </a>
+                            <hr class="border-gray-200 dark:border-gray-700 ">
+                        @endforeach
                     </div>
-
                 </div>
             </div>
             <!-- component niveles -->
@@ -88,52 +54,14 @@
                     <!-- Dropdown menu -->
                     <div class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800"
                         x-show="open" x-on:click.away="open=false">
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            view profile
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Settings
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Keyboard shortcuts
-                        </a>
-
-                        <hr class="border-gray-200 dark:border-gray-700 ">
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Company profile
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Team
-                        </a>
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Invite colleagues
-                        </a>
-
-                        <hr class="border-gray-200 dark:border-gray-700 ">
-
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Help
-                        </a>
-                        <a href="#"
-                            class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Sign Out
-                        </a>
+                        @foreach ($levels as $level)
+                            <a class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-400 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer"
+                                wire:click="$set('level_id',{{ $level->id }})" x-on:click="open = false">
+                                {{ $level->name }}
+                            </a>
+                            <hr class="border-gray-200 dark:border-gray-700 ">
+                        @endforeach
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -142,41 +70,7 @@
     <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-8 ">
         @foreach ($courses as $course)
-            <article class="bg-white shadow-lg rounded overflow-hidden ">
-                <img class="h-36 w-full object-cover" src="{{ Storage::url($course->image->url) }}" alt="">
-                <div class="px-6 py-4">
-                    <h1 class="text-xl text-gray-700 mb-2 leading-6">{{ Str::limit($course->title, 40) }}</h1>
-                    <p class="text-gray-500 text-sm mb-2">Prof: {{ $course->teacher->name }}</p>
-                    <div class="flex">
-                        <ul class="flex text-sm">
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{ $course->rating >= 1 ? 'yellow' : 'gray' }}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{ $course->rating >= 2 ? 'yellow' : 'gray' }}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{ $course->rating >= 3 ? 'yellow' : 'gray' }}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{ $course->rating >= 4 ? 'yellow' : 'gray' }}-400"></i>
-                            </li>
-                            <li class="mr-1">
-                                <i class="fas fa-star text-{{ $course->rating == 5 ? 'yellow' : 'gray' }}-400"></i>
-                            </li>
-                        </ul>
-                        <p class="text-sm text-gray-500 ml-auto">
-                            <i class="fas fa-users"></i>
-                            ({{ $course->students_count }})
-                        </p>
-                    </div>
-                    <a href="{{ route('courses.show', $course) }}"
-                        class=" text-center w-full mt-4 bg-blue-400 px-8 py-2 font-semibold  hover:bg-blue-500 text-white inline-flex items-center space-x-2 rounded">
-                        <i class="fas fa-info-circle w-5 h-5 fill-current"></i>
-                        <span>Mas information</span>
-                    </a>
-                </div>
-            </article>
+            <x-frontend.course-card :course="$course" />
         @endforeach
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-2">

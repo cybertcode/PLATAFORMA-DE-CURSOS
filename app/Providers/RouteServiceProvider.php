@@ -40,8 +40,23 @@ class RouteServiceProvider extends ServiceProvider
              * Agregamos nuestra propio archivo de rutas *
              *********************************************/
             Route::middleware('web', 'auth')
+                ->name('admin.') //para poner un nombre a los nombres de rutas
                 ->prefix('admin') //Para agregar el prefijo
                 ->group(base_path('routes/admin.php'));
+            /***********************************************************
+             * Agregamos nuestra propio archivo de rutas de instructor *
+             ***********************************************************/
+            Route::middleware('web', 'auth')
+                ->name('instructor.')
+                ->prefix('instructor') //Para agregar el prefijo
+                ->group(base_path('routes/instructor.php'));
+            /***********************************************************
+             * Agregamos nuestra propio archivo de rutas pagos *
+             ***********************************************************/
+            Route::middleware('web', 'auth')
+                ->name('payment.')
+                ->prefix('payment') //Para agregar el prefijo
+                ->group(base_path('routes/payment.php'));
         });
     }
 

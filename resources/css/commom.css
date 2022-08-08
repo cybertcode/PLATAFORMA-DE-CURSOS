@@ -1,0 +1,38 @@
+/* Nuestras clases personalizadas */
+.container {
+    @apply px-4 mx-auto max-w-7xl;
+}
+.card {
+    @apply bg-white shadow-lg rounded overflow-hidden;
+}
+.card-body {
+    @apply px-6 py-4;
+}
+.card-title {
+    @apply text-xl text-gray-700 mb-2 leading-6;
+}
+
+.embed-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (min-width: 640px) {
+    .container {
+        @apply px-6;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        @apply px-8;
+    }
+}

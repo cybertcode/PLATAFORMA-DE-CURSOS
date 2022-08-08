@@ -3,8 +3,9 @@
 namespace App\Models\admin;
 
 use App\Models\admin\Course;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {

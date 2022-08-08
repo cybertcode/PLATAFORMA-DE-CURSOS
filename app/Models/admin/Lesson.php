@@ -21,6 +21,11 @@ class Lesson extends Model
      * @var array
      */
     protected $guarded = ['id'];
+    // Para curso completado
+    public function getCompletedAttribute()
+    {
+        return $this->users->contains(auth()->user()->id);
+    }
     /**********************
      * Relación uno a uno *
      **********************/
