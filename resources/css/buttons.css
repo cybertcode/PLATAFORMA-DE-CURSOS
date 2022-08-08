@@ -1,0 +1,15 @@
+.btn {
+    @apply text-center font-semibold inline-flex items-center space-x-2 rounded;
+}
+.btn-primary {
+    @apply text-white bg-blue-400;
+}
+.btn-primary:hover {
+    @apply bg-blue-500;
+}
+.btn-danger {
+    @apply text-white bg-red-400;
+}
+.btn-danger:hover {
+    @apply bg-red-500;
+}
