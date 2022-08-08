@@ -2,10 +2,14 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "fakerphp/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
         "jeroennoten/laravel-adminlte": "^3.8",
         "laravel/framework": "^9.19",
@@ -19,7 +23,6 @@
         "srmklive/paypal": "~3.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
         "laravel-lang/lang": "^11.0",
         "laravel/sail": "^1.0.1",
         "mmo/faker-images": "^0.6.0",
