@@ -92,7 +92,8 @@
                             </form>
                         @else
                             <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">S/. {{ $course->price->value }}</p>
-                            <a href="{{ route('payment.checkout', $course) }}" class="w-full px-16 py-2 btn btn-danger">Comprar este curso</a>
+                            <a href="{{ route('payment.checkout', $course) }}"
+                                class="w-full px-16 py-2 btn btn-danger">Comprar este curso</a>
                         @endif
                     @endcan
                 </div>
