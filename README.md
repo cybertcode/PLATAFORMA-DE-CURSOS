@@ -9,6 +9,7 @@
 
 ## :point_right: Descripción del proyecto <a name="point_right-descripción-del-proyecto-"></a>
 
+
 <p>"Este repositorio contiene una plataforma de cursos en línea construida con STACK TALL (Tailwind CSS, Alpine.js, Livewire y Laravel). La plataforma ofrece una amplia gama de características para la creación, gestión y venta de cursos en línea, incluyendo la autenticación de usuarios, la creación y edición de perfiles de usuario, la creación y gestión de cursos, la venta de cursos a través de PayPal, y la visualización de estadísticas de curso. Esta plataforma es una solución completa y moderna para la creación, gestión y venta de cursos en línea, y es fácilmente personalizable y escalable."
 
 ## 🥇 DEMO 🥇 <a name="-demo--"></a>
