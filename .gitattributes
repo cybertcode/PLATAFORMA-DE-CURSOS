@@ -5,6 +5,7 @@
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
+package-lock.json
 
 /.github export-ignore
 CHANGELOG.md export-ignore
